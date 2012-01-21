@@ -4,9 +4,9 @@
   android:orientation="vertical"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
-    <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="Title" android:layout_width="wrap_content" android:id="@+id/event_detail_title"></TextView>
+    <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="Title" android:layout_width="wrap_content" android:id="@+id/event_detail_title" android:textSize="45sp"></TextView>
     <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="Description" android:layout_width="wrap_content" android:id="@+id/event_detail_description"></TextView>
     <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="Time" android:layout_width="wrap_content" android:id="@+id/event_detail_time"></TextView>
-    <Button android:text="View on Map" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+    <Button android:text="View on Map" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/event_detail_view_on_map_button"></Button>
     
 </LinearLayout>
