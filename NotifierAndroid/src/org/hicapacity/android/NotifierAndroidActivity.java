@@ -53,10 +53,11 @@ public class NotifierAndroidActivity extends Activity {
         eventInfo.storeInIntent(notificationIntent);
         notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
             | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        context.startActivity(notificationIntent);
+//        context.startActivity(notificationIntent);
         PendingIntent contentIntent = PendingIntent.getActivity(NotifierAndroidActivity.this,
             0, notificationIntent, 0);
 
+        notification.flags |= Notification.FLAG_AUTO_CANCEL;
         notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
 
         mNotificationManager.notify(HELLO_ID, notification);
