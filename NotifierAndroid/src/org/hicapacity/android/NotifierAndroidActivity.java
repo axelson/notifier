@@ -48,6 +48,9 @@ public class NotifierAndroidActivity extends Activity {
         CharSequence contentText = "Hello World3!";
         Intent notificationIntent = new Intent(NotifierAndroidActivity.this,
             EventDetailActivity.class);
+        notificationIntent.putExtra("title", "TestTitle");
+        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        context.startActivity(notificationIntent);
         PendingIntent contentIntent = PendingIntent.getActivity(NotifierAndroidActivity.this,
             0, notificationIntent, 0);
 
