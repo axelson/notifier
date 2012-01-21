@@ -33,17 +33,20 @@ function init() {
 	features = new OpenLayers.Layer.Vector("Features");
 
 	// Test KML Layer
+	console.log("test");
 	var kml = new OpenLayers.Layer.Vector("KML", {
 		strategies : [new OpenLayers.Strategy.Fixed()],
 		protocol : new OpenLayers.Protocol.HTTP({
-			url : "http://192.168.1.100:8080/de.vogella.jersey.first/rest/api",
+			//url : "http://192.168.1.100:8080/de.vogella.jersey.first/rest/api",
+			url : "/de.vogella.jersey.first/rest/api/getAllEvents",
 			format : new OpenLayers.Format.KML({
 				extractStyles : true,
 				extractAttributes : true,
 				maxDepth : 2
 			})
 		})
-	})
+	});
+	console.log(kml);
 
 	// add all the layers to the map.
 	map.addLayers([gmap, features, kml]);
