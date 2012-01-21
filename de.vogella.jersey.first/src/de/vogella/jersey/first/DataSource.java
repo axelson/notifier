@@ -51,7 +51,7 @@ public class DataSource {
     for (GeoEvent event : events) {
       document.createAndAddPlacemark().withName(event.title)
           .withDescription(event.description).withOpen(Boolean.TRUE).createAndSetPoint()
-          .addToCoordinates(event.lat, event.lon);
+          .addToCoordinates(event.lon, event.lat);
     }
 
     StringWriter stringWriter = new StringWriter();
@@ -60,7 +60,7 @@ public class DataSource {
 
     return string;
   }
-  
+
   public static String newSampleData() {
     ArrayList<GeoEvent> eventList = sample();
     String kml = convertToKml(eventList);
