@@ -21,7 +21,7 @@ public class Hello {
   @GET
   @Produces(MediaType.TEXT_PLAIN)
   public String sayPlainTextHello() {
-    return "Hello Jersey";
+    return "Hello Jersey CityCamp!";
   }
 
   // This method is called if XML is request
@@ -36,7 +36,7 @@ public class Hello {
   @Produces(MediaType.TEXT_HTML)
   public String sayHtmlHello() {
     return "<html> " + "<title>" + "Hello Jersey" + "</title>"
-        + "<body><h1>" + "Hello Jersey" + "</body></h1>" + "</html> ";
+        + "<body><h1>" + "Hello Jersey City Camp HTML!" + "</body></h1>" + "</html> ";
   }
 
 }
