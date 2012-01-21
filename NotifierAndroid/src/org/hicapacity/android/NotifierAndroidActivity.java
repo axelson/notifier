@@ -38,9 +38,8 @@ public class NotifierAndroidActivity extends Activity {
         String ns = Context.NOTIFICATION_SERVICE;
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(ns);
 
-        // TODO: use an official icon from Aaron
-        int icon = R.drawable.icon;
-        CharSequence tickerText = "Hello";
+        int icon = R.drawable.notification_icon;
+        CharSequence tickerText = eventInfo.getmTitle();
         long when = System.currentTimeMillis();
 
         Notification notification = new Notification(icon, tickerText, when);
