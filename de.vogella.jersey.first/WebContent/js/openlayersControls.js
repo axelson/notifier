@@ -36,14 +36,16 @@ function init() {
 	var kml = new OpenLayers.Layer.Vector("KML", {
 		strategies : [new OpenLayers.Strategy.Fixed()],
 		protocol : new OpenLayers.Protocol.HTTP({
-			url : "http://192.168.1.100:8080/de.vogella.jersey.first/rest/api",
+			// "HelloKml.kml"
+			url : "HelloKml.kml",
 			format : new OpenLayers.Format.KML({
 				extractStyles : true,
 				extractAttributes : true,
 				maxDepth : 2
 			})
 		})
-	})
+	});
+	console.log(kml);
 
 	// add all the layers to the map.
 	map.addLayers([gmap, features, kml]);
@@ -55,7 +57,7 @@ function init() {
 	map.addControl(panel);
 
 	// add control to select the features in the vector layer
-	var sf = new OpenLayers.Control.SelectFeature(features, {
+	var sf = new OpenLayers.Control.SelectFeature(kml, {
 		multiple : false,
 		toggle : false,
 		box : true,
@@ -77,7 +79,7 @@ function init() {
 
 function onFeatureSelect(feature) {
 	selectedFeature = feature;
-	popup = new OpenLayers.Popup.FramedCloud("chicken", feature.geometry.getBounds().getCenterLonLat(), null, "<div style='font-size:.8em'>Feature: " + feature.id + "<br>Area: " + feature.geometry.getArea() + "</div>", null, true, null);
+	popup = new OpenLayers.Popup.FramedCloud("chicken", feature.geometry.getBounds().getCenterLonLat(), null, "<div style='font-size:.8em'>Feature: " + feature.id + "<br>Attributes: " + feature.attributes + "</div>", null, true, null);
 	feature.popup = popup;
 	map.addPopup(popup);
 }
@@ -86,48 +88,4 @@ function onFeatureUnselect(feature) {
 	map.removePopup(feature.popup);
 	feature.popup.destroy();
 	feature.popup = null;
-}
-
-function printWfs() {
-	if(features.features == null) {
-		alert("Features are null");
-	} else {
-		alert("Features are not null");
-	}
-
-	var output = "";
-	var count;
-	for( count = 0; count < features.features.length; count++) {
-		output = output.concat(features.features[count].toString());
-	}
-
-	alert(output);
-	alert("Count = " + count);
-	alert("featuers length = " + features.features.length);
-	alert(features.drawn);
-}
-
-function addLayer() {
-	var added = new OpenLayers.Layer.Vector("added", {
-		strategies : [new OpenLayers.Strategy.Fixed()],
-		protocol : new OpenLayers.Protocol.HTTP({
-			url : "http://192.168.1.100:8080/de.vogella.jersey.first/rest/api",
-			format : new OpenLayers.Format.KML({
-				extractStyles : true,
-				extractAttributes : true,
-				maxDepth : 2
-			})
-		})
-	})
-	
-	map.addLayer(added);
-}
-
-function removeLayer() {
-	var layers = map.getLayersByName("added");
-	alert(layers.length);
-	for (layer in layers) {
-		alert(layer.name);
-		if (layer) map.removeLayer(layer);
-	}
 }

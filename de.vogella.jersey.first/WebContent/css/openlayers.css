@@ -18,8 +18,12 @@ body {
 }
 
 #headerLeft {
+	width: 50%;
+	height: 100px;
 	float:left;
 }
 #headerRight {
+	width: 50%;
+	height: 100px;
 	float:right;
 }
