@@ -1,6 +1,8 @@
 package de.vogella.jersey.first;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -51,5 +53,15 @@ public class NotifierApi {
   @Produces(MediaType.TEXT_XML)
   public String getAllEvents() {
     return DataSource.newSampleData();
+  }
+
+  @Path("/setEvent")
+  @POST
+  @Consumes(MediaType.TEXT_XML)
+  @Produces(MediaType.TEXT_XML)
+  public String setEvent(String message) {
+    System.out.println("in set event");
+    System.out.println("Got message: " + message);
+    return "<?xml version=\"1.0\"?>" + "<hello> Testinger Jersey" + "</hello>";
   }
 }

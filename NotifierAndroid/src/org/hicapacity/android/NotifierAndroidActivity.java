@@ -73,6 +73,7 @@ public class NotifierAndroidActivity extends Activity {
   
   private void restRequest() {
     System.out.println("trying to download");
-    UploadTest.testDownload();
+//    UploadTest.testDownload();
+    UploadTest.testPost();
   }
 }
