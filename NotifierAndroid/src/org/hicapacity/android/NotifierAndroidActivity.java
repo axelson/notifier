@@ -1,5 +1,10 @@
 package org.hicapacity.android;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
+import org.apache.http.client.ClientProtocolException;
+
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -31,6 +36,7 @@ public class NotifierAndroidActivity extends Activity {
       public void onClick(View v) {
         System.out.println("Button pressed!");
         but.setText("newer text");
+        restRequest();
 
         EventInfo eventInfo = new EventInfo("New Construction",
             "Work will be ongoing until further notice you suckers", "coordinates", "address", "time");
@@ -63,5 +69,10 @@ public class NotifierAndroidActivity extends Activity {
         mNotificationManager.notify(HELLO_ID, notification);
       }
     });
+  }
+  
+  private void restRequest() {
+    System.out.println("trying to download");
+    UploadTest.testDownload();
   }
 }

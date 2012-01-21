@@ -1,6 +1,5 @@
 package de.vogella.jersey.first;
 
-import java.awt.image.SampleModel;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
