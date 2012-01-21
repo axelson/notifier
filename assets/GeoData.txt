@@ -1,0 +1,7 @@
+eventList.add(new GeoEvent(21.38683, -157.930698, "Aiea, Emergency Improvements", time, time + 100000));
+eventList.add(new GeoEvent(21.38099, -157.922115, "Halawa, Sewer Reconstruction", time, time + 100000));
+eventList.add(new GeoEvent(21.29671, -157.701981, "Hawaii Kai, Street Rehabilitation", time, time + 100000));
+eventList.add(new GeoEvent(21.31032, -157.857571, "Honolulu, Sewer Rehabilitation", time, time + 100000));
+eventList.add(new GeoEvent(21.40624, -157.739639, "Kailua, Sewer Rehabilitation", time, time + 100000));
+eventList.add(new GeoEvent(21.41296, -157.798347, "Kaneohe, Road Rehabilitation", time, time + 100000));
+eventList.add(new GeoEvent(21.34646, -157.827358, "Nuuanu, Bridge Rehabilitation", time, time + 100000));

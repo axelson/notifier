@@ -33,11 +33,13 @@ function init() {
 	features = new OpenLayers.Layer.Vector("Features");
 
 	// Test KML Layer
+	console.log("test");
 	var kml = new OpenLayers.Layer.Vector("KML", {
 		strategies : [new OpenLayers.Strategy.Fixed()],
 		protocol : new OpenLayers.Protocol.HTTP({
-			// "HelloKml.kml"
-			url : "HelloKml.kml",
+			//url : "http://192.168.1.100:8080/de.vogella.jersey.first/rest/api",
+			//url : "HelloKml.kml",
+			url : "/de.vogella.jersey.first/rest/api/getAllEvents",
 			format : new OpenLayers.Format.KML({
 				extractStyles : true,
 				extractAttributes : true,
