@@ -24,6 +24,8 @@ public class NotifierAndroidActivity extends Activity {
 
     but = (Button) this.findViewById(R.id.button1);
     but.setText("New text");
+    Intent intent = new Intent(getApplicationContext(), NotifierAndroidActivity.class);
+
     but.setOnClickListener(new OnClickListener() {
 
       @Override
@@ -43,9 +45,9 @@ public class NotifierAndroidActivity extends Activity {
 
         Context context = getApplicationContext();
         CharSequence contentTitle = "My notification";
-        CharSequence contentText = "Hello World!";
+        CharSequence contentText = "Hello World3!";
         Intent notificationIntent = new Intent(NotifierAndroidActivity.this,
-            NotifierAndroidActivity.class);
+            EventDetailActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(NotifierAndroidActivity.this,
             0, notificationIntent, 0);
 
