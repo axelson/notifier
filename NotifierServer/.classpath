@@ -2,5 +2,10 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/jersey-bundle-1.11.jar"/>
+	<classpathentry kind="lib" path="lib/grizzly-http-2.1.2.jar"/>
+	<classpathentry kind="lib" path="lib/grizzly-http-server-2.1.2.jar"/>
+	<classpathentry kind="lib" path="lib/jersey-grizzly2-1.11.jar"/>
+	<classpathentry kind="lib" path="lib/jersey-core-1.11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
