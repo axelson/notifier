@@ -38,11 +38,6 @@ public class EventDetailActivity extends Activity {
       mTitleText.setText(eventInfo.getmTitle());
       mDescriptionText.setText(eventInfo.getmDescription());
       mTimeText.setText("Time: " + eventInfo.getmTime());
-
-      String title = bundle.getString("title");
-      if (title != null) {
-        System.out.println("Title is: " + title);
-      }
     }
     else {
       System.out.println("cannot load event since bundle is null");
