@@ -17,7 +17,10 @@ public class EventDetailActivity extends Activity {
     Bundle bundle = getIntent().getExtras();
     System.out.println("saved state: " + savedInstanceState);
     System.out.println("bundle is: " + bundle);
+    EventInfo eventInfo;
     if (bundle != null) {
+      eventInfo = EventInfo.fromBundle(bundle);
+      System.out.println("got event: " + eventInfo.toString());
       String title = bundle.getString("title");
       if (title != null) {
         System.out.println("Title is: " + title);

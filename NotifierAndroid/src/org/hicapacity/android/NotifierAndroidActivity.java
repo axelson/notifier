@@ -24,7 +24,6 @@ public class NotifierAndroidActivity extends Activity {
 
     but = (Button) this.findViewById(R.id.button1);
     but.setText("New text");
-    Intent intent = new Intent(getApplicationContext(), NotifierAndroidActivity.class);
 
     but.setOnClickListener(new OnClickListener() {
 
@@ -32,6 +31,9 @@ public class NotifierAndroidActivity extends Activity {
       public void onClick(View v) {
         System.out.println("Button pressed!");
         but.setText("newer text");
+
+        EventInfo eventInfo = new EventInfo("New Construction",
+            "Work will be ongoing until further notice you suckers", "coordinates", "address");
 
         String ns = Context.NOTIFICATION_SERVICE;
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(ns);
@@ -48,8 +50,10 @@ public class NotifierAndroidActivity extends Activity {
         CharSequence contentText = "Hello World3!";
         Intent notificationIntent = new Intent(NotifierAndroidActivity.this,
             EventDetailActivity.class);
-        notificationIntent.putExtra("title", "TestTitle");
-        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        eventInfo.storeInIntent(notificationIntent);
+        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+            | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         context.startActivity(notificationIntent);
         PendingIntent contentIntent = PendingIntent.getActivity(NotifierAndroidActivity.this,
             0, notificationIntent, 0);

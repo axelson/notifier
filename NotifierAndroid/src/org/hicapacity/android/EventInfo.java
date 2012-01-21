@@ -1,22 +1,23 @@
 package org.hicapacity.android;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 /**
  * @author Jason Axelson
- *
+ * 
  */
 public class EventInfo {
-  public String TITLE_KEY = "title";
-  public String DESCRIPTION_KEY = "description";
-  public String COORDINATES_KEY = "coordinates";
-  public String ADDRESS_KEY = "address";
+  public static final String TITLE_KEY = "title";
+  public static final String DESCRIPTION_KEY = "description";
+  public static final String COORDINATES_KEY = "coordinates";
+  public static final String ADDRESS_KEY = "address";
 
   private String mTitle;
   private String mDescription;
   private String mCoordinates;
   private String mAddress;
-  
+
   /**
    * @param mTitle
    * @param mDescription
@@ -86,29 +87,37 @@ public class EventInfo {
   public void setmAddress(String mAddress) {
     this.mAddress = mAddress;
   }
-  
-  public void storeInBundle(Bundle bundle) {
-    bundle.putString(TITLE_KEY, mTitle);
-    bundle.putString(DESCRIPTION_KEY, mDescription);
-    bundle.putString(COORDINATES_KEY, mCoordinates);
-    bundle.putString(ADDRESS_KEY, mAddress);
+
+  public void storeInIntent(Intent intent) {
+    intent.putExtra(TITLE_KEY, mTitle);
+    intent.putExtra(DESCRIPTION_KEY, mDescription);
+    intent.putExtra(COORDINATES_KEY, mCoordinates);
+    intent.putExtra(ADDRESS_KEY, mAddress);
   }
-  
-  public EventInfo fromBundle(Bundle bundle) {
-    String title = this.getStringOrError(bundle, TITLE_KEY);
-    String description = this.getStringOrError(bundle, DESCRIPTION_KEY);
-    String coordinates = this.getStringOrError(bundle, COORDINATES_KEY);
-    String address = this.getStringOrError(bundle, ADDRESS_KEY);
+
+  public static EventInfo fromBundle(Bundle bundle) {
+    String title = getStringOrError(bundle, TITLE_KEY);
+    String description = getStringOrError(bundle, DESCRIPTION_KEY);
+    String coordinates = getStringOrError(bundle, COORDINATES_KEY);
+    String address = getStringOrError(bundle, ADDRESS_KEY);
 
     EventInfo eventInfo = new EventInfo(title, description, coordinates, address);
     return eventInfo;
   }
-  
-  private String getStringOrError(Bundle bundle, String key) {
+
+  private static String getStringOrError(Bundle bundle, String key) {
     String string = bundle.getString(key);
-    if(string == null) {
+    if (string == null) {
       throw new RuntimeException("Unable to get string for key: " + key);
     }
     return string;
   }
+
+  /** {@inheritDoc} */
+  @Override
+  public String toString() {
+    return "EventInfo [mTitle=" + mTitle + ", mDescription=" + mDescription
+        + ", mCoordinates=" + mCoordinates + ", mAddress=" + mAddress + "]";
+  }
+
 }
