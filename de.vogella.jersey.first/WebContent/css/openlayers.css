@@ -1,0 +1,27 @@
+/* CSS for the rest of the page */
+body {
+	margin: 1em;
+	/* border: 1px solid red; */
+}
+#controlBody {
+	height: 2em;
+	width: 100%;
+	position: relative;
+	/* border: 1px solid black; */
+}
+/* CSS for OpenLayers. */
+#map {
+	float: right;
+	width: 80%;
+	height: 450px;
+	position: relative;
+	border: 1px solid black;
+}
+
+#leftPanel {
+	float: left;
+	width: 20%;
+	height: 450px;
+	position: relative;
+	border: 1px solid black;
+}
