@@ -33,7 +33,7 @@ public class NotifierAndroidActivity extends Activity {
         but.setText("newer text");
 
         EventInfo eventInfo = new EventInfo("New Construction",
-            "Work will be ongoing until further notice you suckers", "coordinates", "address");
+            "Work will be ongoing until further notice you suckers", "coordinates", "address", "time");
 
         String ns = Context.NOTIFICATION_SERVICE;
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(ns);

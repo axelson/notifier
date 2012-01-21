@@ -37,6 +37,7 @@ public class EventDetailActivity extends Activity {
 
       mTitleText.setText(eventInfo.getmTitle());
       mDescriptionText.setText(eventInfo.getmDescription());
+      mTimeText.setText("Time: " + eventInfo.getmTime());
 
       String title = bundle.getString("title");
       if (title != null) {

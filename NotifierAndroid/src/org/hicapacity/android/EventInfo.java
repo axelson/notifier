@@ -12,11 +12,13 @@ public class EventInfo {
   public static final String DESCRIPTION_KEY = "description";
   public static final String COORDINATES_KEY = "coordinates";
   public static final String ADDRESS_KEY = "address";
+  public static final String TIME_KEY = "time";
 
   private String mTitle;
   private String mDescription;
   private String mCoordinates;
   private String mAddress;
+  private String mTime;
 
   /**
    * @param mTitle
@@ -24,12 +26,14 @@ public class EventInfo {
    * @param mCoordinates
    * @param mAddress
    */
-  public EventInfo(String mTitle, String mDescription, String mCoordinates, String mAddress) {
+  public EventInfo(String mTitle, String mDescription, String mCoordinates, String mAddress,
+      String mTime) {
     super();
     this.mTitle = mTitle;
     this.mDescription = mDescription;
     this.mCoordinates = mCoordinates;
     this.mAddress = mAddress;
+    this.mTime = mTime;
   }
 
   /**
@@ -88,11 +92,26 @@ public class EventInfo {
     this.mAddress = mAddress;
   }
 
+  /**
+   * @return the mTime
+   */
+  public String getmTime() {
+    return mTime;
+  }
+
+  /**
+   * @param mTime the mTime to set
+   */
+  public void setmTime(String mTime) {
+    this.mTime = mTime;
+  }
+
   public void storeInIntent(Intent intent) {
     intent.putExtra(TITLE_KEY, mTitle);
     intent.putExtra(DESCRIPTION_KEY, mDescription);
     intent.putExtra(COORDINATES_KEY, mCoordinates);
     intent.putExtra(ADDRESS_KEY, mAddress);
+    intent.putExtra(TIME_KEY, mTime);
   }
 
   public static EventInfo fromBundle(Bundle bundle) {
@@ -100,8 +119,9 @@ public class EventInfo {
     String description = getStringOrError(bundle, DESCRIPTION_KEY);
     String coordinates = getStringOrError(bundle, COORDINATES_KEY);
     String address = getStringOrError(bundle, ADDRESS_KEY);
+    String time = getStringOrError(bundle, TIME_KEY);
 
-    EventInfo eventInfo = new EventInfo(title, description, coordinates, address);
+    EventInfo eventInfo = new EventInfo(title, description, coordinates, address, time);
     return eventInfo;
   }
 
