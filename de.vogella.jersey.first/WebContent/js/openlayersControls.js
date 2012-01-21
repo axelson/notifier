@@ -81,7 +81,11 @@ function init() {
 
 function onFeatureSelect(feature) {
 	selectedFeature = feature;
-	popup = new OpenLayers.Popup.FramedCloud("chicken", feature.geometry.getBounds().getCenterLonLat(), null, "<div style='font-size:.8em'>Feature: " + feature.id + "<br>Attributes: " + feature.attributes + "</div>", null, true, null);
+	popup = new OpenLayers.Popup.FramedCloud("chicken", feature.geometry.getBounds().getCenterLonLat(), null, 
+	  "<div style='font-size:.8em'>Description: " + feature.attributes.description + "</div>", null, true, null);
+	for (object in feature.attributes) {
+		alert(object);
+	}
 	feature.popup = popup;
 	map.addPopup(popup);
 }
