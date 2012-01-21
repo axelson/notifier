@@ -39,12 +39,13 @@ public class UploadTest {
   private static final String SERVER_URL = "http://ec2-107-20-189-184.compute-1.amazonaws.com/json/problems/";
 
   public static void testDownload() {
+    String url = "http://192.168.43.219:8080/de.vogella.jersey.first/rest/api/getAllEvents";
     System.out.println("test download func");
     BufferedReader in = null;
     try {
       HttpClient client = new DefaultHttpClient();
       HttpGet request = new HttpGet();
-      request.setURI(new URI("http://www.google.com/"));
+      request.setURI(new URI(url));
       HttpResponse response = client.execute(request);
       in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
       StringBuffer sb = new StringBuffer("");
