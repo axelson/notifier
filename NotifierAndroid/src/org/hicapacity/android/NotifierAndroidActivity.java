@@ -1,10 +1,5 @@
 package org.hicapacity.android;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-
-import org.apache.http.client.ClientProtocolException;
-
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
