@@ -30,17 +30,22 @@
 </head>
 
 <body onload="init()">
-  <header></header>
+  <header>
+  	<div id="headerLeft">
+  	  <img src="img/banner.png">	
+  	</div>
+  	<div id="headerRight">
+  	  <img src="img/HelloAwesome.png">	
+  	</div>
+  </header>
   
-  <div id="leftPanel"></div>
-  <div id="map"></div>
-  
-  <div id="controlBody" onclick="printWfs" > 
-    Here's the wfs layer: <a href="#" onclick="printWfs();">Print wfs</a>
+  <div>
+    <div id="map"></div>
+    <div id="leftPanel">
+    	stuff.
+    </div>
   </div>
   
-  <button onclick="addLayer()">Add Layer</button>
-  <button onclick="removeLayer()">Remove Layer</button>
   <footer></footer>
 
   <!-- JavaScript at the bottom for fast page loading -->
