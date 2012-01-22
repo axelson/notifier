@@ -5,16 +5,15 @@ body {
 /* CSS for OpenLayers. */
 #map {
 	float: right;
-	width: 79%;
-	height: 450px;
+	width: 71%;
+	height: 500px;
 	border: 1px solid black;
 }
 
 #leftPanel {
 	float: left;
-	width: 20%;
-	height: 450px;
-	border: 1px solid black;
+	width: 28%;
+	height: 500px;
 }
 
 #headerLeft {
