@@ -1,6 +1,9 @@
 package org.hicapacity.android;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.app.ListActivity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -11,7 +14,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class NotifierAndroidActivity extends Activity {
+public class NotifierAndroidActivity extends ListActivity {
   private Button but;
   protected Activity activity = this;
   private static final int HELLO_ID = 1;
@@ -64,6 +67,10 @@ public class NotifierAndroidActivity extends Activity {
         mNotificationManager.notify(HELLO_ID, notification);
       }
     });
+    
+    ArrayList<GeoEventAndroid> sample = DataSource.sample();
+    EventAdapter adapter = new EventAdapter(this, sample);
+    this.setListAdapter(adapter);
   }
   
   private void restRequest() {
