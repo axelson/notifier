@@ -26,18 +26,18 @@ public class NotifierAndroidActivity extends ListActivity {
     setContentView(R.layout.main);
 
     but = (Button) this.findViewById(R.id.button1);
-    but.setText("New text");
+//    but.setText("New text");
 
     but.setOnClickListener(new OnClickListener() {
 
       @Override
       public void onClick(View v) {
         System.out.println("Button pressed!");
-        but.setText("newer text");
+//        but.setText("newer text");
         restRequest();
 
-        EventInfo eventInfo = new EventInfo("New Construction",
-            "Work will be ongoing until further notice you suckers", "coordinates", "address", "time");
+        EventInfo eventInfo = new EventInfo("Honolulu",
+            "Ongoing work on the sewer, no end in sight.", "21.38683, -157.930698", "", "ongoing");
 
         String ns = Context.NOTIFICATION_SERVICE;
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(ns);
@@ -49,8 +49,8 @@ public class NotifierAndroidActivity extends ListActivity {
         Notification notification = new Notification(icon, tickerText, when);
 
         Context context = getApplicationContext();
-        CharSequence contentTitle = "My notification";
-        CharSequence contentText = "Hello World3!";
+        CharSequence contentTitle = eventInfo.getmTitle();
+        CharSequence contentText = eventInfo.getmDescription();
         Intent notificationIntent = new Intent(NotifierAndroidActivity.this,
             EventDetailActivity.class);
 
@@ -76,6 +76,6 @@ public class NotifierAndroidActivity extends ListActivity {
   private void restRequest() {
     System.out.println("trying to download");
 //    UploadTest.testDownload();
-    UploadTest.testPost();
+//    UploadTest.testPost();
   }
 }
