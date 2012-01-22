@@ -18,7 +18,7 @@ import android.widget.TextView;
  * 
  */
 public class EventAdapter extends BaseAdapter {
-  List<GeoEventAndroid> mEvents = new ArrayList<GeoEventAndroid>();
+  public List<GeoEventAndroid> mEvents = new ArrayList<GeoEventAndroid>();
   Context mContext;
 
   /**
